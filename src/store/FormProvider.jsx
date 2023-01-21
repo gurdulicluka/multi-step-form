@@ -92,14 +92,20 @@ export default function FormProvider({ children }) {
 
   const handleNext = () => {
     let isValid = true;
-    Object.values(state.formErrors).forEach((section) => {
-      Object.values(section).forEach((error) => {
-        if (error) {
-          isValid = false;
-        }
-      });
+    Object.values(state.formData.personal).forEach((data) => {
+      if (!data) {
+        isValid = false;
+      }
     });
-    if (isValid) {
+    if (!isValid) {
+      Object.keys(state.formData.personal).forEach((field) => {
+        dispatch({
+          type: "HANDLE_ERROR",
+          name: `personal.${field}`,
+          error: "Field is required",
+        });
+      });
+    } else {
       dispatch({
         type: "NEXT_STEP",
       });

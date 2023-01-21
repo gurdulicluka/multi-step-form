@@ -9,6 +9,9 @@ const StepOne = () => {
     <>
       <label>Name</label>
       <input
+        className={`${
+          state.formErrors.personal.name ? "border-2 border-[red]" : ""
+        }`}
         type="text"
         name="personal.name"
         onChange={handleChange}
@@ -30,6 +33,9 @@ const StepOne = () => {
       />
       <label>Phone Number</label>
       <input
+        className={`${
+          state.formErrors.personal.phone ? "border-2 border-[red]" : ""
+        }`}
         type="number"
         name="personal.phone"
         onChange={handleChange}
