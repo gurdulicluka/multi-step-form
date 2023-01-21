@@ -80,6 +80,9 @@ export default function FormProvider({ children }) {
       });
     }
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   const handlePrev = () => {
     dispatch({
@@ -109,6 +112,7 @@ export default function FormProvider({ children }) {
         state,
         handleChange,
         handleBlur,
+        handleSubmit,
         handleNext,
         handlePrev,
       }}
