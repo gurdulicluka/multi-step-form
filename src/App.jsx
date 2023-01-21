@@ -1,5 +1,12 @@
+import MyForm from "./components/MyForm";
+import FormProvider from "./store/FormProvider";
+
 function App() {
-  return;
+  return (
+    <FormProvider>
+      <MyForm />
+    </FormProvider>
+  );
 }
 
 export default App;
